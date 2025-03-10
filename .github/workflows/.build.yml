@@ -23,6 +23,10 @@ jobs:
         with:
           python-version: '3.9'  # Use Python 3.9 (or the version your app requires)
 
+      # Set up Android SDK
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v2
+
       # Install Buildozer and dependencies
       - name: Install Buildozer and dependencies
         run: |
