@@ -30,10 +30,14 @@ jobs:
           sudo apt-get install -y python3-pip python3-setuptools python3-virtualenv git zip unzip openjdk-8-jdk
           pip install buildozer
 
-      # Install Python dependencies from requirements.txt
+      # Install Python dependencies from requirements.txt (if the file exists)
       - name: Install Python dependencies
         run: |
-          pip install -r requirements.txt
+          if [ -f "requirements.txt" ]; then
+            pip install -r requirements.txt
+          else
+            echo "requirements.txt not found. Skipping dependency installation."
+          fi
 
       # Initialize Buildozer (if not already initialized)
       - name: Initialize Buildozer
