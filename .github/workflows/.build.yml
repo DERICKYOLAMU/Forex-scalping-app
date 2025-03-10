@@ -1,66 +1,22 @@
-name: Build Kivy APK
+# Install Buildozer and dependencies
+- name: Install Build the following dependencies in your `pom.xml`:
+```xml
+<dependency>
+    <groupId>javax.xml.bind</groupIdozer and dependencies
+  run: |
+    sudo apt-get update
+    sudo apt-get>
+    <artifactId>jaxb-api</artifactId>
+    <version> install -y python3-pip python3-setuptools python3-virtualenv git zip unzip openjdk-8-jdk
+    pip install buildozer
 
-on:
-  push:
-    branches:
-      - main  # Trigger the workflow on pushes to the main branch
-  pull_request:
-    branches:
-      - main  # Trigger the workflow on pull requests to the main branch
-
-jobs:
-  build:
-    runs-on: ubuntu-latest  # Use the latest Ubuntu environment
-
-    steps:
-      # Check out the repository
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      # Set up Python
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.9'  # Use Python 3.9 (or the version your app requires)
-
-      # Set up Android SDK
-      - name: Set up Android SDK
-        uses: android-actions/setup-android@v2
-
-      # Install Android Build Tools
-      - name: Install Android Build Tools
-        run: |
-          yes | $ANDROID_HOME/tools/bin/sdkmanager --install "build-tools;30.0.3"
-
-      # Install Buildozer and dependencies
-      - name: Install Buildozer and dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y python3-pip python3-setuptools python3-virtualenv git zip unzip openjdk-8-jdk
-          pip install buildozer
-
-      # Install Cython
-      - name: Install Cython
-        run: |
-          pip install cython
-
-      # Install Python dependencies from requirements.txt (if the file exists)
-      - name: Install Python dependencies
-        run: |
-          if [ -f "requirements.txt" ]; then
-            pip install -r requirements.txt
-          else
-            echo "requirements.txt not found. Skipping dependency installation."
-          fi
-
-      # Build the APK
-      - name: Build APK
-        run: |
-          buildozer -v android debug
-
-      # Upload the APK as an artifact
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: app-debug.apk
-          path: bin/*.apk  # Path to the generated APK file
+# Add the following step2.3.1</version>
+</dependency>
+<dependency>
+    <groupId>org.glassfish.jaxb</groupId>
+    <artifactId>jaxb to install JAXB API
+- name: Install JAXB API
+-runtime</artifactId  run: |
+    sudo apt-get install -y libjaxb-api-java lib>
+    <version>2.3.1</version>
+</dependency>
