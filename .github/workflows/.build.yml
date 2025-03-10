@@ -27,6 +27,11 @@ jobs:
       - name: Set up Android SDK
         uses: android-actions/setup-android@v2
 
+      # Install Android Build Tools
+      - name: Install Android Build Tools
+        run: |
+          yes | $ANDROID_HOME/tools/bin/sdkmanager --install "build-tools;30.0.3"
+
       # Install Buildozer and dependencies
       - name: Install Buildozer and dependencies
         run: |
