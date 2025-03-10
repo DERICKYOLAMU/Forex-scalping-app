@@ -30,6 +30,11 @@ jobs:
           sudo apt-get install -y python3-pip python3-setuptools python3-virtualenv git zip unzip openjdk-8-jdk
           pip install buildozer
 
+      # Install Cython
+      - name: Install Cython
+        run: |
+          pip install cython
+
       # Install Python dependencies from requirements.txt (if the file exists)
       - name: Install Python dependencies
         run: |
