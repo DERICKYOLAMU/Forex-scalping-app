@@ -39,11 +39,6 @@ jobs:
             echo "requirements.txt not found. Skipping dependency installation."
           fi
 
-      # Initialize Buildozer (if not already initialized)
-      - name: Initialize Buildozer
-        run: |
-          buildozer init
-
       # Build the APK
       - name: Build APK
         run: |
